@@ -1,7 +1,7 @@
 import React, {useState, useContext, useRef, useEffect} from "react";
 import { TodoContext } from "../TodoContext";
 
-export default function AddTodo(){
+export default function TodoForm(){
     const [todo, setTodo] = useState("");
     const { state: {currentTodo = {}}, dispatch } = useContext(TodoContext);
     const todoInput = useRef()
@@ -10,6 +10,8 @@ export default function AddTodo(){
         todoInput.current.focus()
         if(currentTodo.text){
             setTodo(currentTodo.text)
+        }else{
+            setTodo("")
         }
     }, [currentTodo.id])
 
